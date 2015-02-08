@@ -64,8 +64,8 @@ function addPhotos(photoCount, skipCount){
 
             newPhoto = object.clone();
 
-            newPhoto.css("width","400px");
-            newPhoto.css("height","400px");
+            newPhoto.css("width","600px");
+            newPhoto.css("height","600px");
             newPhoto.css("z-index","100");
             newPhoto.css("padding-top","25px");
             newPhoto.attr("id","expanded");
@@ -81,7 +81,8 @@ function addPhotos(photoCount, skipCount){
             object.css("z-index","1");
             //object.css("width","200px");
             //object.css("height","200px");
-            $("#expanded").remove();        }
+            $("#expanded").remove();
+            }
         );
 
     }, function(error){
@@ -107,25 +108,13 @@ function addPhotoToList(photo, photoCount){
 function createPhotos(photoID, name, thumbnailURL, desc, photoCount, fullPhoto){
 
     var rowWidth = $( document ).width();
-    rowWidth = rowWidth - 200;
     
+    rowWidth = rowWidth - 200;
+
     var width = rowWidth/photoCount;
     
-    var wideContained = width * photoCount;
-
     width = width + "px";
-
-    var contained = $(".rowContained");
-
-    var margined = "-" + contained.width();
-
-    contained.css("margin-left",margined);
-
-    contained.css("width",contained);
     
-    contained.css("position","absolute");
-
-    contained.css("left","50%");
     var template = $("#tempImage").clone();
 
     template.removeAttr("id");
