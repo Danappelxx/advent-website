@@ -2,6 +2,7 @@ var Event = Parse.Object.extend("Event"),
     Photo = Parse.Object.extend("Photo"),
     User = Parse.Object.extend("User");
 
+addEvents(0,0);
 
 function createListItem(eventID, name, thumbnailURL, desc, photoCount, timeString, index){
     var template = $("#template").clone();
