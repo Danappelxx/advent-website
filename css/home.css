@@ -19,7 +19,11 @@ a:hover {
   border: 1px solid #fff;
 }
 
+.masthead.clearfix {
 
+  border-bottom: 2px solid white;
+
+}
 /*
  * Base structure
  */
