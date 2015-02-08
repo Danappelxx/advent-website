@@ -1,7 +1,7 @@
 function search(){
     var keywords = $("input")[0].value.toLocaleLowerCase().split(" ");
     parseSearchKeywords(keywords).then(function(data){
-        $("#events").children("ul").hide();
+        $("#events").empty();
         addEvents(data);
     }, function(error){
         console.log("Error");
@@ -16,7 +16,6 @@ function parseSearchKeywords(keywords){
         query.equalTo("keywords", keywords[key]);
         queries.push(query);
     }
-    console.log(x=queries)
     var mainQuery = Parse.Query.or.apply(null, queries);
     return mainQuery.find();
 }
