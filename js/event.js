@@ -61,8 +61,8 @@ function addPhotos(photoCount, skipCount){
             object.attr('full', thumbnail);
             object.attr('src', full);
             object.css("z-index","100");
-            object.css("width","400px");
-            object.css("height","400px");
+            //object.css("width","400px");
+            //object.css("height","400px");
             
         }, function() {
             var object = $(this);
@@ -72,8 +72,8 @@ function addPhotos(photoCount, skipCount){
             object.attr('full', thumbnail);
             object.attr('src', full);
             object.css("z-index","1");
-            object.css("width","200px");
-            object.css("height","200px");
+            //object.css("width","200px");
+            //object.css("height","200px");
         }
         );
 
@@ -101,7 +101,7 @@ function addPhotoToList(photo){
 
 function createPhotos(photoID, name, thumbnailURL, desc, photoCount, fullPhoto){
 
-    var width = 100/5;
+    var width = 100/8;
     width = width + "%";
     alert(width);
     var template = $("#tempImage").clone();
@@ -114,6 +114,6 @@ function createPhotos(photoID, name, thumbnailURL, desc, photoCount, fullPhoto){
     images.attr("full",fullPhoto);
     images.attr("id", photoID);
     images.css("width",width);
-    images.css("height","200px");
+    images.css("height","width");
     return template;
 }
