@@ -56,17 +56,17 @@ function addPhotos(photoCount, skipCount){
         $(".images").hover(function() { 
             var object = $(this);
             //object.css("display","none");
-            var full = object.attr('full');
-            var thumbnail = object.attr('src');
-            object.attr('full', thumbnail);
-            object.attr('src', full);
-            object.css("z-index","50");
+            //var full = object.attr('full');
+            //var thumbnail = object.attr('src');
+            //object.attr('full', thumbnail);
+            //object.attr('src', full);
+            //object.css("z-index","50");
 
             newPhoto = object.clone();
 
             newPhoto.css("width","400px");
             newPhoto.css("height","400px");
-            newPhoot.css("z-index","100");
+            newPhoto.css("z-index","100");
             newPhoto.attr("id","expanded");
             $(".row").append(newPhoto);
             
