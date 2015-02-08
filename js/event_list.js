@@ -11,6 +11,7 @@ function createListItem(eventID, name, thumbnailURL, desc, photoCount, timeStrin
     template.find(".media-heading").text(name);
     template.find("#desc").text(desc);
     template.find("#time").text(timeString);
+    template.find("#picture-count").text(photoCount);
     var eventPageURL = "event.html?";
     template.find("a").attr("href", eventPageURL + eventID);
     template.removeAttr("style");
@@ -19,7 +20,7 @@ function createListItem(eventID, name, thumbnailURL, desc, photoCount, timeStrin
 
 function getRecentEvents(eventCount, skipCount){
     var query = new Parse.Query(Event);
-    query.descending("createdAt");
+    query.descending("updatedAt");
     if(eventCount >= 1 && eventCount <= 1000){
         query.limit(eventCount);
     }

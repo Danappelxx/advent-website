@@ -7,7 +7,7 @@
     <meta name="author" content="">
     <link rel="icon" href="http://getbootstrap.com/favicon.ico">
 
-    <title>List of Events</title>
+    <title>Events</title>
 
     <!-- Bootstrap core CSS -->
     <link href="./css/bootstrap.css" rel="stylesheet">
@@ -27,9 +27,20 @@
         .media-body {
           text-align: initial;
         }
+        .media-heading {
+            margin: 5px 0px 5px 0px;
+            font-size: 20px;
+            color:hsl(198, 100%, 37%);
+        }
+        #desc {
+            margin: 5px 0px 5px 0px;
+            font-size:14px;
+            color: #000;
+        }
         #time {
-            text-color: #888;
-            text-size:12pt;
+            margin: 5px 0px 5px 0px;
+            color: #888;
+            font-size:13px;
         }
     </style>
   </head>
@@ -38,9 +49,12 @@
       <ul id="template" class="list-group" style="display:none;">
           <a href="#" class="list-group-item media">
               <div class="media-left">
-                  <img class="media-object">
+                  <img class="media-object" style="width: 200px; height: 200px;">
               </div>
               <div class="media-body">
+                  <div style="float:right;">
+                      <span id="picture-count" class="glyphicon glyphicon-picture" style="letter-spacing: 3px;"></span>
+                  </div>
                   <h4 class="media-heading"></h4>
                   <div id="desc"></div>
                   <div id="time"></div>
