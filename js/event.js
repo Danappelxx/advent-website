@@ -102,9 +102,9 @@ function addPhotoToList(photo, photoCount){
 
 function createPhotos(photoID, name, thumbnailURL, desc, photoCount, fullPhoto){
 
-    //var rowWidth = document.getElementsByClassName("row").offsetWidth;
-    alert(document.getElementsByClassName("row").clientWidth  + " Row Width");
-    var width = document.getElementsByClassName("row").clientWidth/photoCount;
+    var rowWidth = $( document ).width();
+    alert(rowWidth + " Row Width");
+    var width = rowWidth/photoCount;
     
     width = width + "px";
     
