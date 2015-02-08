@@ -65,6 +65,7 @@ function addPhotos(photoCount, skipCount){
             newPhoto.css("margin-left","0 auto");
             newPhoto.css("margin-right","0 auto");
             newPhoto.attr("id","expanded");
+            $("#expanded").remove();
             $(".row").append(newPhoto);
             
         }, function() {
@@ -77,7 +78,7 @@ function addPhotos(photoCount, skipCount){
             object.css("z-index","1");
             //object.css("width","200px");
             //object.css("height","200px");
-            $("#expanded").remove();
+            //$("#expanded").remove();
             }
         );
 
