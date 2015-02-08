@@ -109,7 +109,7 @@ function createPhotos(photoID, name, thumbnailURL, desc, photoCount, fullPhoto){
     var rowWidth = $( document ).width();
     rowWidth = rowWidth - 200;
     var widthPX = rowWith + "px";
-    $(".row").css("width",widthPX);
+    //$(".row").css("width",widthPX);
     var width = rowWidth/photoCount;
     
     width = width + "px";
