@@ -81,7 +81,7 @@ function addPhotos(photoCount, skipCount){
 
         if($(".row").height() > 150){
 
-            alert("hi");
+            $(".row").css("height","100px");
 
         }
 
