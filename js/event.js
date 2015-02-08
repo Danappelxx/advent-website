@@ -32,6 +32,7 @@ function addPhotos(photoCount, skipCount){
         console.log("Error");
         console.log(error);
     });
+    
     $("#tempImage").css("display","none");
 }
 
@@ -45,7 +46,7 @@ function addPhotoToList(photo){
 
     //TODO: add thumbnail url and owner
     var photo = createPhotos(photoID, name, thumbnailURL, desc, photoCount, fullPhoto);
-    $(".row").append(photo);
+    //$(".row").append(photo);
 }
 
     // var width = 100/photoCount;
