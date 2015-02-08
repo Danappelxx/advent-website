@@ -97,9 +97,6 @@ function addPhotoToList(photo, photoCount){
     $(".row").append(photo);
 }
 
-    // var width = 100/photoCount;
-    // alert("width: " + width);
-
 function createPhotos(photoID, name, thumbnailURL, desc, photoCount, fullPhoto){
 
     var rowWidth = $( document ).width();
@@ -117,10 +114,10 @@ function createPhotos(photoID, name, thumbnailURL, desc, photoCount, fullPhoto){
     images.attr("src", thumbnailURL); 
     images.attr("full",fullPhoto);
     images.attr("id", photoID);
-    //images.css("width",width);
-    //images.css("height",width);
     images.css("width",width);
     images.css("height",width);
+    images.css("min-width","25px");
+    images.css("max-width","300px");
 
     return template;
 }
