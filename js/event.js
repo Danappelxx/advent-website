@@ -6,17 +6,20 @@
 // alert("event.js launched!");
 Parse.initialize("8isJgtutQ8AdDqryHScLFn4ETPn8HFiUTnBDkqgY", "XXZ4qiRU2jgygeZbE95sHGDEC2H5uKMqqhU9THEx");
 
-var photo = Parse.Object.extend("Photo");
+var photo = Parse.Object.extend("Photo"),
+    Event = Parse.Object.extend("Event");
 
 addPhotos(0,0);
 
-var url =  window.location.href;
-
-var id = /\?(\w+)/.exec(url)[1];
 
 function getRecentPhotos(photoCount, skipCount){
+    var eventID = /\?(\w+)/.exec(window.location.href)[1];
+    var event = new Event();
+    event.id = eventID;
     var query = new Parse.Query(photo);
-    query.equalTo("objectID",id);
+    query.include("event");
+    query.equalTo("event",event);
+    query.descending("createdAt");
 
     if(photoCount >= 1 && photoCount <= 1000){
         query.limit(photoCount);
