@@ -63,14 +63,10 @@ function addPhotos(photoCount, skipCount){
             newPhoto.css("z-index","100");
             newPhoto.css("padding-top","25px");
             newPhoto.css("margin-left","0 auto");
-            newPho  to.css("margin-right","0 auto");
+            newPhoto.css("margin-right","0 auto");
             newPhoto.attr("id","expanded");
             $("#expanded").remove();
             $(".row").append(newPhoto);
-            $("#expanded").click(function() {
-                $("#expanded").remove();
-            })
-            
         }, function() {
             var object = $(this);
             //object.css("display","none");
@@ -83,6 +79,10 @@ function addPhotos(photoCount, skipCount){
             //object.css("height","200px");
             //$("#expanded").remove();
             }
+
+            $("#expanded").click(function() {
+                $("#expanded").remove();
+            })
         );
 
         if($(".row").height() > 150){
