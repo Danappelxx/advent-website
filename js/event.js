@@ -106,7 +106,7 @@ function createPhotos(photoID, name, thumbnailURL, desc, photoCount, fullPhoto){
     alert(rowWidth + " Row Width");
     var width = rowWidth/photoCount;
     
-    width = width + "px";
+    width = width + 200 + "px";
     
     alert(width + " width");
     
