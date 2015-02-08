@@ -45,6 +45,7 @@ function addPhotoToList(photo){
     //TODO: add thumbnail url and owner
     var photo = createPhotos(photoID, name, thumbnailURL, desc, photoCount, "");
     $(".row").append(photo);
+    $("#tempImage").remove();
 }
 
     // var width = 100/photoCount;
