@@ -55,12 +55,6 @@ function addPhotos(photoCount, skipCount){
         
         $(".images").hover(function() { 
             var object = $(this);
-            //object.css("display","none");
-            //var full = object.attr('full');
-            //var thumbnail = object.attr('src');
-            //object.attr('full', thumbnail);
-            //object.attr('src', full);
-            //object.css("z-index","50");
 
             newPhoto = object.clone();
 
@@ -84,6 +78,12 @@ function addPhotos(photoCount, skipCount){
             $("#expanded").remove();
             }
         );
+
+        if($(".row").height() > 150){
+
+            alert("hi");
+
+        }
 
     }, function(error){
         console.log("Error");
