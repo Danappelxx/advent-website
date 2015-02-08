@@ -101,18 +101,25 @@ function addPhotoToList(photo, photoCount){
 
     //TODO: add thumbnail url and owner
     var photo = createPhotos(photoID, name, thumbnailURL, desc, numPhotos, fullPhoto);
-    $(".row").append(photo);
+    $(".rowContained").append(photo);
 }
 
 function createPhotos(photoID, name, thumbnailURL, desc, photoCount, fullPhoto){
 
     var rowWidth = $( document ).width();
     rowWidth = rowWidth - 200;
-    var widthPX = rowWidth + "px";
-    $(".row").css("width",widthPX);
+    
     var width = rowWidth/photoCount;
     
+    var wideContained = width * photoCount;
+
     width = width + "px";
+
+    var contained = $(".rowContained");
+
+    contained.css("margin","0px");
+
+    contained.css("width",contained);
     
     var template = $("#tempImage").clone();
 
