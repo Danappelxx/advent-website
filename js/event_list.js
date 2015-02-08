@@ -2,7 +2,7 @@ var Event = Parse.Object.extend("Event"),
     Photo = Parse.Object.extend("Photo"),
     User = Parse.Object.extend("User");
 
-function createListItem(eventID, name, thumbnailURL, desc, photoCount, owner){
+function createListItem(eventID, name, thumbnailURL, desc, photoCount){
     var template = $("#template").clone();
     template.removeAttr("id");
     template.find(".media-object").attr("src", thumbnailURL);
@@ -44,7 +44,18 @@ function addEventToList(event){
         desc = event.get("desc"),
         photoCount = event.get("photoCount");
 
-    //TODO: add thumbnail url and owner
-    var listItem = createListItem(eventID, name, "", desc, photoCount, "");
+    var thumbnailObject = event.get("thumbnail");
+    getPhoto(thumbnailObject.id).then(function(data){
+        var thumbnailURL = data.get("thumbnail").url();
+        var listItem = createListItem(eventID, name, thumbnailURL, desc, photoCount);
     $(".container").append(listItem);
+    }, function(error){
+        console.log("Error");
+        console.log(error);
+    });
+}
+
+function getPhoto(id){
+    var query = new Parse.Query(Photo);
+    return query.get(id);
 }
