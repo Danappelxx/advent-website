@@ -23,8 +23,28 @@ function getRecentEvents(eventCount, skipCount){
     if(skipCount >=1){
         query.skip(skipCount);
     }
-    query.find({
-        success: function(result){
-            
-        });
+    var promise = query.find();
+    return promise;
+}
+
+function addEvents(eventCount, skipCount){
+    getRecentEvents(eventCount, skipCount).then(function(data){
+        for(var i = 0; i < data.length; i++){
+            addEventToList(data[i]);
+        }
+    }, function(error){
+        console.log("Error");
+        console.log(error);
+    });
+}
+
+function addEventToList(event){
+    var eventID = event.get("objectID"),
+        name = event.get("name"),
+        desc = event.get("desc"),
+        photoCount = event.get("photoCount");
+
+    //TODO: add thumbnail url and owner
+    var listItem = createListItem(eventID, name, "", desc, photoCount, "");
+    $(".container").append(listItem);
 }
