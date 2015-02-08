@@ -17,7 +17,6 @@ var id = /\?(\w+)/.exec(url)[1];
 function getRecentPhotos(photoCount, skipCount){
     var query = new Parse.Query(photo);
     query.equalTo("objectID",id);
-    query.descending("createdAt");
 
     if(photoCount >= 1 && photoCount <= 1000){
         query.limit(photoCount);
