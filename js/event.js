@@ -96,11 +96,12 @@ function addPhotoToList(photo, photoCount){
         name = photo.get("name"),
         desc = photo.get("desc"),
         numPhotos = photoCount,
+        var thumbnailURL = '';
         //photoCount = photo.get("photoCount");
         fullPhoto = photo.get("image").url();
-        thumbnailURL = photo.get("thumbnail").url();
-        if(thumbnailURL != null){
-            
+        //thumbnailURL = photo.get("thumbnail").url();
+        if(photo.get("thumbnail").url() != ''){
+            thumbnailURL = photo.get("thumbnail").url();
         } else{
             thumbnailURL = fullPhoto;
         }
