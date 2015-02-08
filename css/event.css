@@ -8,6 +8,7 @@ h4 {
   margin-top: 10px;
   margin-bottom: 0;
 }
+
 [class*="col-"] {
   padding-top: 15px;
   padding-bottom: 15px;
@@ -27,6 +28,7 @@ hr {
   min-height: 1px;
   padding-right: 15px;
   padding-left: 15px;
+  padding-bottom: 30px;
   margin-left: 10px;
   float: left;
 }

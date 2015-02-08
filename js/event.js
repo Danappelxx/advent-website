@@ -101,9 +101,8 @@ function addPhotoToList(photo){
 
 function createPhotos(photoID, name, thumbnailURL, desc, photoCount, fullPhoto){
 
-    var width = 100/photoCount;
+    var width = 100/5;
     width = width + "%";
-    alert(photoCount + "photo");
     var template = $("#tempImage").clone();
 
     template.removeAttr("id");
@@ -113,7 +112,7 @@ function createPhotos(photoID, name, thumbnailURL, desc, photoCount, fullPhoto){
     images.attr("src", thumbnailURL); 
     images.attr("full",fullPhoto);
     images.attr("id", photoID);
-    images.css("width","200px");
+    images.css("width",width);
     images.css("height","200px");
     return template;
 }
