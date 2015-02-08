@@ -20,6 +20,9 @@ Note: these examples will not work if running from a local file:// URL.
 <br/>
 <img src="dsc_09827.jpg" id="img3" /><br/>
 <br/>
+<img src="12.jpg" id="img4" /><br/>
+<br/>
+
 <button id="objecturltest">Object URL Test</button><br/>
 <br/>
 <button id="blobtest">Blob Test</button><br/>
@@ -48,6 +51,11 @@ document.getElementById("img3").onclick = function() {
     });
 }
 
+document.getElementById("img4").onclick = function() {
+    EXIF.getData(this, function() {
+        alert(EXIF.pretty(this));
+    });
+}
 document.getElementById("file-input").onchange = function(e) {
     EXIF.getData(e.target.files[0], function() {
         alert(EXIF.pretty(this));
