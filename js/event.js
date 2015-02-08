@@ -58,8 +58,8 @@ function addPhotos(photoCount, skipCount){
 
             newPhoto = object.clone();
 
-            //newPhoto.css("width","600px");
-            //newPhoto.css("height","600px");
+            newPhoto.css("width","1000px");
+            newPhoto.css("height","1000px");
             newPhoto.css("z-index","100");
             newPhoto.css("padding-top","25px");
             newPhoto.attr("id","expanded");
@@ -98,6 +98,7 @@ function addPhotoToList(photo, photoCount){
         numPhotos = photoCount,
         //photoCount = photo.get("photoCount");
         fullPhoto = photo.get("image").url();
+        alert(photo.get("image").url);
         thumbnailURL = fullPhoto;
 
     //TODO: add thumbnail url and owner
