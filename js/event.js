@@ -96,7 +96,7 @@ function addPhotoToList(photo, photoCount){
         name = photo.get("name"),
         desc = photo.get("desc"),
         numPhotos = photoCount,
-        var thumbnailURL = '';
+        thumbnailURL = '',
         //photoCount = photo.get("photoCount");
         fullPhoto = photo.get("image").url();
         //thumbnailURL = photo.get("thumbnail").url();
