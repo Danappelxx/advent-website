@@ -63,6 +63,6 @@ function createPhotos(photoID, name, thumbnailURL, desc, photocount, fullPhoto){
 
     template.find(".images").attr("src", thumbnailURL); 
 
-    template.find(".images").attr("full","fullPhoto")
+    template.find(".images").attr("full",fullPhoto)
     return template;
 }
