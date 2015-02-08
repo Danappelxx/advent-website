@@ -48,7 +48,7 @@ function addEventToList(event){
     getPhoto(thumbnailObject.id).then(function(data){
         var thumbnailURL = data.get("thumbnail").url();
         var listItem = createListItem(eventID, name, thumbnailURL, desc, photoCount);
-    $(".container").append(listItem);
+        $(".container").append(listItem);
     }, function(error){
         console.log("Error");
         console.log(error);

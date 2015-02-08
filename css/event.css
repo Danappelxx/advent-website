@@ -27,7 +27,7 @@ hr {
   min-height: 1px;
   padding-right: 15px;
   padding-left: 15px;
-  width: 20%;
+  margin-left: 10px;
   float: left;
 }
 
