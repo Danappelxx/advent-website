@@ -42,7 +42,7 @@
                 <ul class="nav masthead-nav">
                   <li class="active"><a href="#">Home</a></li>
                   <li><a href="event_list.html">Events</a></li>
-                  <li><a href="home.html" onclick="FB.logout(function(response) {})" id="logout-btn">Log In (With FB)</a></li>
+                  <li><a href="home.html" onclick="FB.logout(function(response) {})" id="logout-btn"> </a></li>
 
                 </ul>
               </nav>
@@ -100,11 +100,13 @@
       // The person is logged into Facebook, but not your app.
       document.getElementById('status').innerHTML = 'Please log ' +
         'into this app.';
+      document.getElementById('logout-btn').innerHTML = " ";
     } else {
       // The person is not logged into Facebook, so we're not sure if
       // they are logged into this app or not.
       document.getElementById('status').innerHTML = 'Please log ' +
         'into Facebook.';
+      document.getElementById('logout-btn').innerHTML = " ";
     }
   }
 
