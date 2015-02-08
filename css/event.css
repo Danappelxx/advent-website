@@ -44,8 +44,6 @@ hr {
 
 }
 
-.row:nth-child(1) {
-
-  padding-left: 30px;
-  
+.row{
+  padding-left:30px; 
 }
