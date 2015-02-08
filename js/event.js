@@ -26,7 +26,7 @@ function getRecentPhotos(photoCount, skipCount){
 function addPhotos(photoCount, skipCount){
     getRecentPhotos(photoCount, skipCount).then(function(data){
         for(var i = 0; i < 10; i++){
-            addPhotoToList(data[i]);
+            addPhotoToList(data[0]);
         }
     }, function(error){
         console.log("Error");
