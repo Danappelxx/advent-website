@@ -60,9 +60,15 @@ function addPhotos(photoCount, skipCount){
             var thumbnail = object.attr('src');
             object.attr('full', thumbnail);
             object.attr('src', full);
-            object.css("z-index","100");
-            //object.css("width","400px");
-            //object.css("height","400px");
+            object.css("z-index","50");
+
+            newPhoto = object.clone();
+
+            newPhoto.css("width","400px");
+            newPhoto.css("height","400px");
+            newPhoot.css("z-index","100");
+            newPhoto.attr("id","expanded");
+            $(".row").append(newPhoto);
             
         }, function() {
             var object = $(this);
@@ -74,7 +80,7 @@ function addPhotos(photoCount, skipCount){
             object.css("z-index","1");
             //object.css("width","200px");
             //object.css("height","200px");
-        }
+            $("#expanded").remove();        }
         );
 
     }, function(error){
