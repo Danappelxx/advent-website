@@ -14,7 +14,10 @@
     <link href="./css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="./css/grid.css" rel="stylesheet">
+    <link href="./css/event.css" rel="stylesheet">
+
+    <!-- Top Bar CSS -->
+    <link href="./css/home.css" rel="stylesheet">
 
     <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
     <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
@@ -27,19 +30,35 @@
   </head>
 
   <body cz-shortcut-listen="true">
+
+
+
     <div class="container">
 
+          <h3 class="masthead-brand">Home</h3>
+            <nav>
+               <ul class="nav masthead-nav">
+                <li class="active"><a href="#">Home</a></li>
+                <li><a href="event_list.html">Events</a></li>
+                <li><a href="home.html" onclick="FB.logout(function(response) {})" id="logout-btn">Log In (With FB)</a></li>
+
+                </ul>
+            </nav>
+          </div>
+      
       <div class="page-header">
         <h1>Bootstrap grid examples</h1>
         <p class="lead">Basic grid layouts to get you familiar with building within the Bootstrap grid system.</p>
       </div>
 
-      <h3>Three equal columns</h3>
-      <p>Get three equal-width columns <strong>starting at desktops and scaling to large desktops</strong>. On mobile devices, tablets and below, the columns will automatically stack.</p>
+      <h3>*Event Name*</h3>
+      <p>*Information*</p>
       <div class="row">
-        <div class="col-md-4">.col-md-4</div>
-        <div class="col-md-4">.col-md-4</div>
-        <div class="col-md-4">.col-md-4</div>
+        <div class="img-col">*image1*</div>
+        <div class="img-col">*image2*</div>
+        <div class="img-col">*image3*</div>
+        <div class="img-col">*image1*</div>
+        <div class="img-col">*image2*</div>
       </div>
 
     </div> <!-- /container -->
