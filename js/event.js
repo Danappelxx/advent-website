@@ -117,7 +117,9 @@ function createPhotos(photoID, name, thumbnailURL, desc, photoCount, fullPhoto){
     images.css("width",width);
     images.css("height",width);
     images.css("min-width","25px");
+    images.css("min-height","25px");
     images.css("max-width","300px");
+    images.css("max-height","25px");
 
     return template;
 }
