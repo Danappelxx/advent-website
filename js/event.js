@@ -53,9 +53,7 @@ function addPhotos(photoCount, skipCount){
         }
         $("#tempImage").css("display","none");
         
-        $("#expanded").click(function() {
-                $("#expanded").remove();
-        });
+        $("#expanded").click($(this).remove());
 
         $(".images").hover(function() { 
             var object = $(this);
