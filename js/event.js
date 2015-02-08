@@ -53,6 +53,10 @@ function addPhotos(photoCount, skipCount){
         }
         $("#tempImage").css("display","none");
         
+        $("#expanded").click(function() {
+                $("#expanded").remove();
+        });
+
         $(".images").hover(function() { 
             var object = $(this);
 
@@ -67,6 +71,7 @@ function addPhotos(photoCount, skipCount){
             newPhoto.attr("id","expanded");
             $("#expanded").remove();
             $(".row").append(newPhoto);
+
         }, function() {
             var object = $(this);
             //object.css("display","none");
@@ -80,9 +85,7 @@ function addPhotos(photoCount, skipCount){
             //$("#expanded").remove();
             }
 
-            $("#expanded").click(function() {
-                $("#expanded").remove();
-            })
+
         );
 
         if($(".row").height() > 150){
