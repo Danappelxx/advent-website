@@ -1,5 +1,14 @@
+
 function search(){
-    var keywords = $("input")[0].value.toLocaleLowerCase().split(" ");
+    var searchText = $("input")[0].value.toLocaleLowerCase();
+    location.href = location.pathname + "?" + searchText;
+}
+
+function searchFromURL(){
+    var keywords = decodeURI(/\?(.+)/.exec(location.href)[1]).split(" "); 
+    if(keywords.length == 1 && keywords[0] == ""){
+        return;
+    }
     parseSearchKeywords(keywords).then(function(data){
         $("#events").empty();
         addEvents(data);
@@ -9,6 +18,7 @@ function search(){
     });
 }
 
+searchFromURL();
 function parseSearchKeywords(keywords){
     var queries = [];
     for(key in keywords){
