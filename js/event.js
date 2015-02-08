@@ -25,13 +25,14 @@ function getRecentPhotos(photoCount, skipCount){
 
 function addPhotos(photoCount, skipCount){
     getRecentPhotos(photoCount, skipCount).then(function(data){
-        for(var i = 0; i < data.length; i++){
+        for(var i = 0; i < 10; i++){
             addPhotoToList(data[i]);
         }
     }, function(error){
         console.log("Error");
         console.log(error);
     });
+    $("#tempImage").css("display","none");
 }
 
 function addPhotoToList(photo){
@@ -43,15 +44,14 @@ function addPhotoToList(photo){
         thumbnailURL = photo.get("thumbnail").url();
 
     //TODO: add thumbnail url and owner
-    var photo = createPhotos(photoID, name, thumbnailURL, desc, photoCount, "");
+    var photo = createPhotos(photoID, name, thumbnailURL, desc, photoCount, fullPhoto);
     $(".row").append(photo);
-    $("#tempImage").remove();
 }
 
     // var width = 100/photoCount;
     // alert("width: " + width);
 
-function createPhotos(photoID, name, thumbnailURL, desc, photocount, owner){
+function createPhotos(photoID, name, thumbnailURL, desc, photocount, fullPhoto){
 
     var template = $("#tempImage").clone();
 
@@ -59,5 +59,6 @@ function createPhotos(photoID, name, thumbnailURL, desc, photocount, owner){
 
     template.find(".images").attr("src", thumbnailURL); 
 
+    template.find(".images").attr("full","fullPhoto")
     return template;
 }
