@@ -55,17 +55,11 @@ function addPhotos(photoCount, skipCount){
         
         $(".images").hover(function() { 
             var object = $(this);
-            //object.css("display","none");
-            //var full = object.attr('full');
-            //var thumbnail = object.attr('src');
-            //object.attr('full', thumbnail);
-            //object.attr('src', full);
-            //object.css("z-index","50");
 
             newPhoto = object.clone();
 
-            newPhoto.css("width","600px");
-            newPhoto.css("height","600px");
+            newPhoto.css("width","1000px");
+            newPhoto.css("height","1000px");
             newPhoto.css("z-index","100");
             newPhoto.css("padding-top","25px");
             newPhoto.attr("id","expanded");
@@ -85,6 +79,12 @@ function addPhotos(photoCount, skipCount){
             }
         );
 
+        if($(".row").height() > 150){
+
+            $(".row").css();
+
+        }
+
     }, function(error){
         console.log("Error");
         console.log(error);
@@ -96,9 +96,9 @@ function addPhotoToList(photo, photoCount){
         name = photo.get("name"),
         desc = photo.get("desc"),
         numPhotos = photoCount,
-        //photoCount = photo.get("photoCount");
-        fullPhoto = photo.get("image").url();
+        fullPhoto = photo.get("image").url(),
         thumbnailURL = fullPhoto;
+        //thumbnailURL = photo.get("thumbnail").url();
 
     //TODO: add thumbnail url and owner
     var photo = createPhotos(photoID, name, thumbnailURL, desc, numPhotos, fullPhoto);
