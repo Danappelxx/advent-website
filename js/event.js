@@ -103,6 +103,7 @@ function createPhotos(photoID, name, thumbnailURL, desc, photoCount, fullPhoto){
 
     var width = 100/5;
     width = width + "%";
+    alert(width);
     var template = $("#tempImage").clone();
 
     template.removeAttr("id");
