@@ -50,12 +50,12 @@
           </div>
 
           <div class="inner cover">
-            <h1 class="cover-heading">Event Timeline</h1>
+            <h1 class="cover-heading">Event Timeline3</h1>
             <p class="lead">This is a companion to our app. Here, you can view the events that you have added from your phone.</p>
             <p class="lead">
               <a href="signin.html" class="btn btn-lg btn-default">Sign In!</a>
             </p>
-            <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
+            <fb:login-button scope="public_profile,email" onlogin="checkLoginState();" id="facebook-btn">
             </fb:login-button>
 
             <div id="status">
@@ -161,8 +161,7 @@
     FB.api('/me', function(response) {
       console.log('Successful login for: ' + response.name);
       document.getElementById('status').innerHTML = 'Thanks for logging in, ' + response.name + '!';
-      document.getElementById('facebook').style.display = "none";
-      //document.location.href = "signin.html";
+      document.getElementById('facebook-btn').style.display = "none";
     });
   }
   </script>
