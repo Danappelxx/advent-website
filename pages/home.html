@@ -87,8 +87,6 @@
 
     <script>
       // This is called with the results from from FB.getLoginStatus().
-
-  alert("hello!");
   function statusChangeCallback(response) {
     console.log('statusChangeCallback');
     console.log(response);
@@ -162,8 +160,11 @@
     console.log('Welcome!  Fetching your information.... ');
     FB.api('/me', function(response) {
       console.log('Successful login for: ' + response.name);
-      document.getElementById('status').innerHTML =
-        'Thanks for logging in, ' + response.name + '!';
+      var status = document.getElementById('status').innerHTML;
+      status.innerHTML = 'Thanks for logging in, ' + response.name + '!' + "<button>Hello!</button>";
+
+
+      // document.location.href = "signin.html";
     });
   }
   </script>
