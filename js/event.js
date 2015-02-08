@@ -58,8 +58,8 @@ function addPhotos(photoCount, skipCount){
 
             newPhoto = object.clone();
 
-            newPhoto.css("width","600px");
-            newPhoto.css("height","600px");
+            //newPhoto.css("width","600px");
+            //newPhoto.css("height","600px");
             newPhoto.css("z-index","100");
             newPhoto.css("padding-top","25px");
             newPhoto.attr("id","expanded");
