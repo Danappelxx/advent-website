@@ -26,9 +26,9 @@ hr {
 .img-col {
   position: relative;
   min-height: 1px;
-  padding-right: 15px;
+  /*padding-right: 15px;*/
   padding-left: 15px;
-  margin-left: 20px;
+  /*margin-left: 20px;*/
   float: left;
 }
 
