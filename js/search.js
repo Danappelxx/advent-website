@@ -9,7 +9,7 @@ function search(){
 function searchFromURL(){
     var urlMatch = /\?(.+)/.exec(location.href); 
     if(urlMatch == null){
-        addEvents(0,0);
+        return;
     }
     else {
         var keywords = decodeURI(urlMatch[1]).split(" ");
