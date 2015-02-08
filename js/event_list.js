@@ -10,7 +10,7 @@ function createListItem(eventID, name, thumbnailURL, desc, photoCount){
     template.find(".media-object").attr("src", thumbnailURL);
     template.find(".media-heading").text(name);
     template.find("#desc").text(desc);
-    var eventPageURL = "event.html?id=";
+    var eventPageURL = "event.html?";
     template.find("a").attr("href", eventPageURL + eventID);
     template.removeAttr("style");
     return template;
@@ -41,7 +41,7 @@ function addEvents(eventCount, skipCount){
 }
 
 function addEventToList(event){
-    var eventID = event.get("objectID"),
+    var eventID = event.id,
         name = event.get("name"),
         desc = event.get("desc"),
         photoCount = event.get("photoCount");
