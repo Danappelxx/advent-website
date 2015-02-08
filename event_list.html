@@ -76,9 +76,9 @@
       <div class="page-header">
         <h1>Events</h1>
         <div class="input-group">
-            <input type="text" class="form-control" placeholder="Search">
+            <input onkeydown="checkKey(event)"type="text" class="form-control" placeholder="Search">
             <span class="input-group-btn">
-                <button class="btn btn-default">
+                <button class="btn btn-default" onclick="search()">
                     <span class="glyphicon glyphicon-search"></span>
                 </button>
             </span>
@@ -95,5 +95,5 @@
 <script>Parse.initialize("8isJgtutQ8AdDqryHScLFn4ETPn8HFiUTnBDkqgY", "XXZ4qiRU2jgygeZbE95sHGDEC2H5uKMqqhU9THEx");</script>
 <script src="js/moment.min.js"></script>
     <script src="js/event_list.js"></script>
-  
+    <script src="js/search.js"></script> 
 </body></html>
