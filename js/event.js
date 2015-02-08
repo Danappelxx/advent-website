@@ -48,12 +48,13 @@ function addPhotoToList(photo){
 
 function createPhotos(photoID, name, thumbnailURL, desc, photocount, owner){
 
+    alert("1");
     var template = $("#tempImage").clone();
 
     template.removeAttr("id");
 
     template.find(".images").attr("src", thumbnailURL); 
-
+    alert("2");
     return template;
 }
 
