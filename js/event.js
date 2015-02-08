@@ -53,14 +53,29 @@ function addPhotos(photoCount, skipCount){
         }
         $("#tempImage").css("display","none");
         
-        $(".images").click(function() { 
+        $(".images").hover(function() { 
             var object = $(this);
             //object.css("display","none");
             var full = object.attr('full');
             var thumbnail = object.attr('src');
             object.attr('full', thumbnail);
             object.attr('src', full);
-        });
+            object.css("z-index","100");
+            object.css("width","400px");
+            object.css("height","400px");
+            
+        }, function() {
+            var object = $(this);
+            //object.css("display","none");
+            var full = object.attr('full');
+            var thumbnail = object.attr('src');
+            object.attr('full', thumbnail);
+            object.attr('src', full);
+            object.css("z-index","1");
+            object.css("width","200px");
+            object.css("height","200px");
+        }
+        );
 
     }, function(error){
         console.log("Error");
