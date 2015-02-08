@@ -96,10 +96,10 @@ function addPhotoToList(photo, photoCount){
         name = photo.get("name"),
         desc = photo.get("desc"),
         numPhotos = photoCount,
-        thumbnailURL = fullPhoto,
-        fullPhoto = photo.get("image").url();
+        fullPhoto = photo.get("image").url(),
+        thumbnailURL = fullPhoto;
         //thumbnailURL = photo.get("thumbnail").url();
-        
+
     //TODO: add thumbnail url and owner
     var photo = createPhotos(photoID, name, thumbnailURL, desc, numPhotos, fullPhoto);
     $(".rowContained").append(photo);
