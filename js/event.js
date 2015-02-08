@@ -51,6 +51,17 @@ function addPhotos(photoCount, skipCount){
         for(var i = 0; i < data.length; i++){
             addPhotoToList(data[i]);
         }
+        $("#tempImage").css("display","none");
+        
+        $(".images").click(function() { 
+            var object = $(this);
+            //object.css("display","none");
+            var full = object.attr('full');
+            var thumbnail = object.attr('src');
+            object.attr('full', thumbnail);
+            object.attr('src', full);
+        });
+
     }, function(error){
         console.log("Error");
         console.log(error);
@@ -58,7 +69,7 @@ function addPhotos(photoCount, skipCount){
 }
 
 function addPhotoToList(photo){
-    var photoID = photo.get("objectID"),
+    var photoID = photo.id,
         name = photo.get("name"),
         desc = photo.get("desc"),
         photoCount = photo.get("photoCount");
@@ -73,14 +84,20 @@ function addPhotoToList(photo){
     // var width = 100/photoCount;
     // alert("width: " + width);
 
-function createPhotos(photoID, name, thumbnailURL, desc, photocount, fullPhoto){
+function createPhotos(photoID, name, thumbnailURL, desc, photoCount, fullPhoto){
+
+    var width = 100/photoCount;
 
     var template = $("#tempImage").clone();
 
     template.removeAttr("id");
 
-    template.find(".images").attr("src", thumbnailURL); 
+    var images = template.find(".images");
 
-    template.find(".images").attr("full",fullPhoto)
+    images.attr("src", thumbnailURL); 
+    images.attr("full",fullPhoto);
+    images.attr("id", photoID);
+    images.css("width","200px");
+    images.css("height","200px");
     return template;
 }
