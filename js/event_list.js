@@ -3,12 +3,18 @@ var Event = Parse.Object.extend("Event"),
     User = Parse.Object.extend("User");
 
 
-var keywords = decodeURI(/\?(.+)/.exec(location.href)[1]).split(" "); 
-if(keywords.length == 1 && keywords[0] == ""){
+var urlMatch = /\?(.+)/.exec(location.href); 
+if(urlMatch == null){
     addEvents(0,0);
 }
 else {
-    $("input")[0].value = keywords.join(" ");
+    var keywords = decodeURI(urlMatch[1]).split(" ");
+    if(keywords.length == 1 && keywords[0] == ""){
+        addEvents(0,0);
+    }
+    else {
+        $("input")[0].value = keywords.join(" ");
+    }
 }
 
 function createListItem(eventID, name, thumbnailURL, desc, photoCount, timeString, index){

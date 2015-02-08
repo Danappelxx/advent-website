@@ -1,21 +1,31 @@
 
 function search(){
     var searchText = $("input")[0].value.toLocaleLowerCase();
-    location.href = location.pathname + "?" + searchText;
+    if(searchText != ""){
+        location.href = location.pathname + "?" + searchText;
+    }
 }
 
 function searchFromURL(){
-    var keywords = decodeURI(/\?(.+)/.exec(location.href)[1]).split(" "); 
-    if(keywords.length == 1 && keywords[0] == ""){
-        return;
+    var urlMatch = /\?(.+)/.exec(location.href); 
+    if(urlMatch == null){
+        addEvents(0,0);
     }
-    parseSearchKeywords(keywords).then(function(data){
-        $("#events").empty();
-        addSearchEvents(data);
-    }, function(error){
-        console.log("Error");
-        console.log(error);
-    });
+    else {
+        var keywords = decodeURI(urlMatch[1]).split(" ");
+        if(keywords.length == 1 && keywords[0] == ""){
+            return;
+        }
+        else {
+            parseSearchKeywords(keywords).then(function(data){
+                $("#events").empty();
+                addSearchEvents(data);
+            }, function(error){
+                console.log("Error");
+                console.log(error);
+            });
+        }
+    }
 }
 
 searchFromURL();
