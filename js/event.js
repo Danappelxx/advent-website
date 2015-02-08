@@ -58,10 +58,12 @@ function addPhotos(photoCount, skipCount){
 
             newPhoto = object.clone();
 
-            newPhoto.css("width","1000px");
-            newPhoto.css("height","1000px");
+            newPhoto.css("width","400px");
+            newPhoto.css("height","400px");
             newPhoto.css("z-index","100");
             newPhoto.css("padding-top","25px");
+            newPhoto.css("margin-left","0 auto");
+            newPhoto.css("margin-right","0 auto");
             newPhoto.attr("id","expanded");
             $(".row").append(newPhoto);
             
@@ -126,10 +128,14 @@ function createPhotos(photoID, name, thumbnailURL, desc, photoCount, fullPhoto){
     images.attr("id", photoID);
     images.css("width",width);
     images.css("height",width);
-    images.css("min-width","25px");
-    images.css("min-height","25px");
-    images.css("max-width","300px");
-    images.css("max-height","300px");
 
+    if(images.width() > 200){
+        images.css("width","200px");
+        images.css("height","200px");
+    }
+    if(images.width() < 25){
+        images.css("width","25px");
+        images.css("height","25px");
+    }
     return template;
 }
