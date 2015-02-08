@@ -56,13 +56,20 @@ function addPhotos(photoCount, skipCount){
         $(".images").hover(function() { 
             var object = $(this);
             //object.css("display","none");
-            var full = object.attr('full');
-            var thumbnail = object.attr('src');
-            object.attr('full', thumbnail);
-            object.attr('src', full);
-            object.css("z-index","100");
-            //object.css("width","400px");
-            //object.css("height","400px");
+            //var full = object.attr('full');
+            //var thumbnail = object.attr('src');
+            //object.attr('full', thumbnail);
+            //object.attr('src', full);
+            //object.css("z-index","50");
+
+            newPhoto = object.clone();
+
+            newPhoto.css("width","400px");
+            newPhoto.css("height","400px");
+            newPhoto.css("z-index","100");
+            newPhoto.css("padding-top","25px");
+            newPhoto.attr("id","expanded");
+            $(".row").append(newPhoto);
             
         }, function() {
             var object = $(this);
@@ -74,7 +81,7 @@ function addPhotos(photoCount, skipCount){
             object.css("z-index","1");
             //object.css("width","200px");
             //object.css("height","200px");
-        }
+            $("#expanded").remove();        }
         );
 
     }, function(error){
@@ -94,16 +101,25 @@ function addPhotoToList(photo, photoCount){
 
     //TODO: add thumbnail url and owner
     var photo = createPhotos(photoID, name, thumbnailURL, desc, numPhotos, fullPhoto);
-    $(".row").append(photo);
+    $(".rowContained").append(photo);
 }
 
 function createPhotos(photoID, name, thumbnailURL, desc, photoCount, fullPhoto){
 
     var rowWidth = $( document ).width();
     rowWidth = rowWidth - 200;
+    
     var width = rowWidth/photoCount;
     
+    var wideContained = width * photoCount;
+
     width = width + "px";
+
+    var contained = $(".rowContained");
+
+    contained.css("margin","0px");
+
+    contained.css("width",contained);
     
     var template = $("#tempImage").clone();
 
