@@ -4,12 +4,13 @@ var Event = Parse.Object.extend("Event"),
 
 addEvents(0,0);
 
-function createListItem(eventID, name, thumbnailURL, desc, photoCount){
+function createListItem(eventID, name, thumbnailURL, desc, photoCount, timeString){
     var template = $("#template").clone();
     template.removeAttr("id");
     template.find(".media-object").attr("src", thumbnailURL);
     template.find(".media-heading").text(name);
     template.find("#desc").text(desc);
+    template.find("#time").text(timeString);
     var eventPageURL = "event.html?";
     template.find("a").attr("href", eventPageURL + eventID);
     template.removeAttr("style");
@@ -44,12 +45,13 @@ function addEventToList(event){
     var eventID = event.id,
         name = event.get("name"),
         desc = event.get("desc"),
-        photoCount = event.get("photoCount");
+        photoCount = event.get("photoCount"),
+        time = "Updated " + moment(event.updatedAt).fromNow();
 
     var thumbnailObject = event.get("thumbnail");
     getPhoto(thumbnailObject.id).then(function(data){
         var thumbnailURL = data.get("thumbnail").url();
-        var listItem = createListItem(eventID, name, thumbnailURL, desc, photoCount);
+        var listItem = createListItem(eventID, name, thumbnailURL, desc, photoCount, time);
         $(".container").append(listItem);
     }, function(error){
         console.log("Error");
