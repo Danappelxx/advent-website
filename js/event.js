@@ -1,3 +1,4 @@
+alert("1");
 var Photo = Parse.Object.extend("Photo");
 var query = new Parse.Query(Photo);
 query.get("eUMh1U5WXZ", {
