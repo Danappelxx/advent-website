@@ -2,6 +2,8 @@ var Event = Parse.Object.extend("Event"),
     Photo = Parse.Object.extend("Photo"),
     User = Parse.Object.extend("User");
 
+addEvents(0,0);
+
 function createListItem(eventID, name, thumbnailURL, desc, photoCount){
     var template = $("#template").clone();
     template.removeAttr("id");
