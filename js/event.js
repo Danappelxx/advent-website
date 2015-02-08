@@ -94,22 +94,16 @@ function addPhotoToList(photo, photoCount){
 
     //TODO: add thumbnail url and owner
     var photo = createPhotos(photoID, name, thumbnailURL, desc, numPhotos, fullPhoto);
-    $(".rowContained").append(photo);
+    $(".row").append(photo);
 }
-
-    // var width = 100/photoCount;
-    // alert("width: " + width);
 
 function createPhotos(photoID, name, thumbnailURL, desc, photoCount, fullPhoto){
 
     var rowWidth = $( document ).width();
     rowWidth = rowWidth - 200;
-    alert(rowWidth + " Row Width");
     var width = rowWidth/photoCount;
     
     width = width + "px";
-    
-    alert(width + " width");
     
     var template = $("#tempImage").clone();
 
@@ -120,10 +114,12 @@ function createPhotos(photoID, name, thumbnailURL, desc, photoCount, fullPhoto){
     images.attr("src", thumbnailURL); 
     images.attr("full",fullPhoto);
     images.attr("id", photoID);
-    //images.css("width",width);
-    //images.css("height",width);
     images.css("width",width);
     images.css("height",width);
+    images.css("min-width","25px");
+    images.css("min-height","25px");
+    images.css("max-width","300px");
+    images.css("max-height","300px");
 
     return template;
 }

@@ -44,12 +44,6 @@ hr {
 
 }
 
-.rowContained {
-
-  margin-left: 0;
-  margin-right: 0;
-  padding-left: 0;
-  padding-right: 0;
-  text-align: center;
-
+.row{
+  padding-left:30px; 
 }
