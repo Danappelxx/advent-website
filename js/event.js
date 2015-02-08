@@ -117,7 +117,7 @@ function createPhotos(photoID, name, thumbnailURL, desc, photoCount, fullPhoto){
 
     var contained = $(".rowContained");
 
-    var margined = contained.width();
+    var margined = "-" + contained.width();
 
     contained.css("margin-left",margined);
 
