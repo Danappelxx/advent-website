@@ -4,7 +4,7 @@
 
 // document.getElementsByClassName("images").style."display"="none";
 // alert("event.js launched!");
-
+alert("0");
 var Photo = Parse.Object.extend("Photo");
 
 
