@@ -67,6 +67,7 @@ function addPhotos(photoCount, skipCount){
             newPhoto.css("width","400px");
             newPhoto.css("height","400px");
             newPhoto.css("z-index","100");
+            newPhoto.css("padding-top","25px");
             newPhoto.attr("id","expanded");
             $(".row").append(newPhoto);
             
@@ -107,6 +108,8 @@ function createPhotos(photoID, name, thumbnailURL, desc, photoCount, fullPhoto){
 
     var rowWidth = $( document ).width();
     rowWidth = rowWidth - 200;
+    var widthPX = rowWith + "px";
+    $(".row").css("width",widthPX);
     var width = rowWidth/photoCount;
     
     width = width + "px";
