@@ -99,9 +99,11 @@ function addPhotoToList(photo, photoCount){
         //photoCount = photo.get("photoCount");
         fullPhoto = photo.get("image").url();
         thumbnailURL = photo.get("thumbnail").url();
-        alert(thumbnailURL + "      --- 123");
-        // thumbnailURL = fullPhoto;
-
+        if(thumbnailURL != null){
+            
+        } else{
+            thumbnailURL = fullPhoto;
+        }
     //TODO: add thumbnail url and owner
     var photo = createPhotos(photoID, name, thumbnailURL, desc, numPhotos, fullPhoto);
     $(".rowContained").append(photo);
