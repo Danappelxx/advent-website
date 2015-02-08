@@ -4,9 +4,9 @@ var Event = Parse.Object.extend("Event"),
 
 addEvents(0,0);
 
-function createListItem(eventID, name, thumbnailURL, desc, photoCount, timeString){
+function createListItem(eventID, name, thumbnailURL, desc, photoCount, timeString, index){
     var template = $("#template").clone();
-    template.removeAttr("id");
+    template.attr("id", index);
     template.find(".media-object").attr("src", thumbnailURL);
     template.find(".media-heading").text(name);
     template.find("#desc").text(desc);
@@ -33,7 +33,7 @@ function getRecentEvents(eventCount, skipCount){
 function addEvents(eventCount, skipCount){
     getRecentEvents(eventCount, skipCount).then(function(data){
         for(var i = 0; i < data.length; i++){
-            addEventToList(data[i]);
+            addEventToList(data[i], i);
         }
     }, function(error){
         console.log("Error");
@@ -41,7 +41,7 @@ function addEvents(eventCount, skipCount){
     });
 }
 
-function addEventToList(event){
+function addEventToList(event, index){
     var eventID = event.id,
         name = event.get("name"),
         desc = event.get("desc"),
@@ -51,8 +51,30 @@ function addEventToList(event){
     var thumbnailObject = event.get("thumbnail");
     getPhoto(thumbnailObject.id).then(function(data){
         var thumbnailURL = data.get("thumbnail").url();
-        var listItem = createListItem(eventID, name, thumbnailURL, desc, photoCount, time);
-        $(".container").append(listItem);
+        var listItem = createListItem(eventID, name, thumbnailURL, desc, photoCount, time, index);
+        var currEvents = $("#events");
+      //   var didInsert = false;
+      //   for(var i = 0; i < currEvents.length; i++){
+      //       if(parseInt(currEvents[i].class) > index){
+      //           listItem.insertBefore(currEvents[i]);
+      //           didInsert = true;
+      //       }
+      //   }
+      //   if(!didInsert){
+            currEvents.append(listItem);
+            var children = currEvents.children("ul");
+            children.sort(function(a,b){
+                var x = parseInt(a.id),
+                    y = parseInt(b.id);
+            if(x < y){
+                return -1;
+            }
+            else if (x > y){
+                return 1;
+            }
+            });
+            children.detach().appendTo(currEvents);
+      //  }
     }, function(error){
         console.log("Error");
         console.log(error);
