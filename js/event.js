@@ -9,8 +9,23 @@ Parse.initialize("8isJgtutQ8AdDqryHScLFn4ETPn8HFiUTnBDkqgY", "XXZ4qiRU2jgygeZbE9
 var photo = Parse.Object.extend("Photo"),
     Event = Parse.Object.extend("Event");
 
+updateEventNames();
 addPhotos(0,0);
 
+function updateEventNames(){
+    var eventID = /\?(\w+)/.exec(window.location.href)[1];
+    var query = new Parse.Query(Event);
+    query.get(eventID).then(function(data){
+        var name = data.get("name"),
+            desc = data.get("desc");
+        $(".page-header h1").text(name);
+        $(".lead").text(desc);
+        $("title").text(name);
+    }, function(error){
+        console.log("Error");
+        console.log(error);
+    });
+}
 
 function getRecentPhotos(photoCount, skipCount){
     var eventID = /\?(\w+)/.exec(window.location.href)[1];
