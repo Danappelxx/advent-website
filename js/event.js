@@ -10,6 +10,12 @@ var photo = Parse.Object.extend("Photo");
 
 addPhotos(0,0);
 
+var url =  window.location.href;
+alert(url);
+
+var id = /\?(\w+)/.exec(url)[1]
+alert(id);
+
 function getRecentPhotos(photoCount, skipCount){
     var query = new Parse.Query(photo);
     query.descending("createdAt");
