@@ -49,7 +49,7 @@ function getRecentPhotos(photoCount, skipCount){
 function addPhotos(photoCount, skipCount){
     getRecentPhotos(photoCount, skipCount).then(function(data){
         for(var i = 0; i < data.length; i++){
-            addPhotoToList(data[i]);
+            addPhotoToList(data[i], i);
         }
         $("#tempImage").css("display","none");
         
@@ -83,11 +83,11 @@ function addPhotos(photoCount, skipCount){
     });
 }
 
-function addPhotoToList(photo){
+function addPhotoToList(photo, photoCount){
     var photoID = photo.id,
         name = photo.get("name"),
         desc = photo.get("desc"),
-        photoCount = photo.get("photoCount");
+        //photoCount = photo.get("photoCount");
         fullPhoto = photo.get("image").url();
         thumbnailURL = fullPhoto;
 
@@ -101,7 +101,7 @@ function addPhotoToList(photo){
 
 function createPhotos(photoID, name, thumbnailURL, desc, photoCount, fullPhoto){
 
-    var width = 100/10;
+    var width = 100/photoCount;
     width = width + "%";
     var template = $("#tempImage").clone();
 
