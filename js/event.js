@@ -98,8 +98,9 @@ function addPhotoToList(photo, photoCount){
         numPhotos = photoCount,
         //photoCount = photo.get("photoCount");
         fullPhoto = photo.get("image").url();
-        alert(photo.get("image").url);
-        thumbnailURL = fullPhoto;
+        thumbnailURL = photo.get("thumbnail").url
+        alert(thumbnailURL);
+        // thumbnailURL = fullPhoto;
 
     //TODO: add thumbnail url and owner
     var photo = createPhotos(photoID, name, thumbnailURL, desc, numPhotos, fullPhoto);
