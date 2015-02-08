@@ -11,7 +11,7 @@ function searchFromURL(){
     }
     parseSearchKeywords(keywords).then(function(data){
         $("#events").empty();
-        addEvents(data);
+        addSearchEvents(data);
     }, function(error){
         console.log("Error");
         console.log(error);
@@ -47,7 +47,7 @@ function sortEvents(events){
     });
 }
 
-function addEvents(events){
+function addSearchEvents(events){
     sortEvents(events);
     for(var i = 0; i < events.length; i++){
         addEventToList(events[i], i);
