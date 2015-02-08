@@ -19,7 +19,16 @@ function searchFromURL(){
         else {
             parseSearchKeywords(keywords).then(function(data){
                 $("#events").empty();
-                addSearchEvents(data);
+                if(data.length == 0){
+                   var div = $("#error-template").clone(); 
+                    div.text("We couldn't find any events matching: \'" + keywords.join(" ") + "\'");
+                    div.css("display", "initial");
+                    div.removeAttr("id");
+                    $("#events").append(div);
+                }
+                else {
+                    addSearchEvents(data);
+                }
             }, function(error){
                 console.log("Error");
                 console.log(error);
