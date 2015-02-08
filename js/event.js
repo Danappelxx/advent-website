@@ -33,7 +33,7 @@ function addPhotos(photoCount, skipCount){
         console.log(error);
     });
     
-    $("#tempImage").css("display","none");
+    //$("#tempImage").css("display","none");
 }
 
 function addPhotoToList(photo){
