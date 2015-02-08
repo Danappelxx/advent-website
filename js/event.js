@@ -117,10 +117,15 @@ function createPhotos(photoID, name, thumbnailURL, desc, photoCount, fullPhoto){
 
     var contained = $(".rowContained");
 
-    contained.css("margin","0px");
+    var margined = contained.width();
+
+    contained.css("margin-left",margined);
 
     contained.css("width",contained);
     
+    contained.css("position","absolute");
+
+    contained.css("left","50%");
     var template = $("#tempImage").clone();
 
     template.removeAttr("id");
