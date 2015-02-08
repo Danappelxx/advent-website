@@ -105,7 +105,6 @@ function createPhotos(photoID, name, thumbnailURL, desc, photoCount, fullPhoto){
     width = width + "%";
     var template = $("#tempImage").clone();
 
-    var size = "100px";
     template.removeAttr("id");
 
     var images = template.find(".images");
@@ -115,7 +114,8 @@ function createPhotos(photoID, name, thumbnailURL, desc, photoCount, fullPhoto){
     images.attr("id", photoID);
     images.css("width",width);
     images.css("height",width);
-    images.css("min-width",size);
-    images.css("min-height",size);
+    images.css("min-width","100px");
+    images.css("min-height","100px");
+    
     return template;
 }
