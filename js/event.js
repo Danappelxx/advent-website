@@ -4,8 +4,10 @@
 
 // document.getElementsByClassName("images").style."display"="none";
 // alert("event.js launched!");
+Parse.initialize("8isJgtutQ8AdDqryHScLFn4ETPn8HFiUTnBDkqgY", "XXZ4qiRU2jgygeZbE95sHGDEC2H5uKMqqhU9THEx");
+
 alert("0");
-var Photo = Parse.Object.extend("Photo");
+var photo = Parse.Object.extend("Photo");
 
 addPhotos(0,0);
 
