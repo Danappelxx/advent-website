@@ -19,7 +19,7 @@ a:hover {
   border: 1px solid #fff;
 }
 
-.inner {
+.masthead.clearfix {
 
   border-bottom: 2px solid white;
 
