@@ -6,7 +6,6 @@
 // alert("event.js launched!");
 Parse.initialize("8isJgtutQ8AdDqryHScLFn4ETPn8HFiUTnBDkqgY", "XXZ4qiRU2jgygeZbE95sHGDEC2H5uKMqqhU9THEx");
 
-alert("0");
 var photo = Parse.Object.extend("Photo");
 
 addPhotos(0,0);
@@ -26,13 +25,15 @@ function getRecentPhotos(photoCount, skipCount){
 
 function addPhotos(photoCount, skipCount){
     getRecentPhotos(photoCount, skipCount).then(function(data){
-        for(var i = 0; i < data.length; i++){
+        for(var i = 0; i < 10; i++){
             addPhotoToList(data[i]);
         }
     }, function(error){
         console.log("Error");
         console.log(error);
     });
+    
+    $("#tempImage").css("display","none");
 }
 
 function addPhotoToList(photo){
@@ -40,23 +41,25 @@ function addPhotoToList(photo){
         name = photo.get("name"),
         desc = photo.get("desc"),
         photoCount = photo.get("photoCount");
+        fullPhoto = photo.get("image").url();
+        thumbnailURL = photo.get("thumbnail").url();
 
     //TODO: add thumbnail url and owner
-    var photo = createPhotos(photoID, name, "", desc, photoCount, "");
-    $(".row").append(photo);
+    var photo = createPhotos(photoID, name, thumbnailURL, desc, photoCount, fullPhoto);
+    //$(".row").append(photo);
 }
 
     // var width = 100/photoCount;
     // alert("width: " + width);
 
-function createPhotos(photoID, name, thumbnailURL, desc, photocount, owner){
+function createPhotos(photoID, name, thumbnailURL, desc, photocount, fullPhoto){
 
-    alert("1");
     var template = $("#tempImage").clone();
 
     template.removeAttr("id");
 
     template.find(".images").attr("src", thumbnailURL); 
-    alert("2");
+
+    template.find(".images").attr("full","fullPhoto")
     return template;
 }
