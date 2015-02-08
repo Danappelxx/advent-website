@@ -1,5 +1,7 @@
 <!DOCTYPE html>
 <html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <script src="js/jquery.min.js"></script>
+    <script src="js/event_list.js"></script>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -10,7 +12,7 @@
     <title>Grid Template for Bootstrap</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
     <link href="../css/grid.css" rel="stylesheet">
@@ -23,6 +25,17 @@
   </head>
 
   <body>
+      <ul id="template" class="list-group" style="display:none;">
+          <a href="#" class="list-group-item media">
+              <div class="media-left">
+                  <img class="media-object">
+              </div>
+              <div class="media-body">
+                  <h4 class="media-heading">Event Name</h4>
+                  <span id="desc"></span>
+              </div>
+          </a>
+      </ul>
     <div class="container">
 
       <div class="page-header">
@@ -30,17 +43,6 @@
         <p class="lead">Here are some events:</p>
       </div>
 
-      <ul class="list-group">
-          <a href="#" class="list-group-item media">
-              <div class="media-left">
-                  <img class="media-object" src="google.com/favicon.ico">
-              </div>
-              <div class="media-body">
-                  <h4 class="media-heading">Event Name</h4>
-                  This is the description.
-              </div>
-          </a>
-      </ul>
     </div> <!-- /container -->
 
 </body></html>
