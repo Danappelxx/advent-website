@@ -6,7 +6,6 @@
 // alert("event.js launched!");
 Parse.initialize("8isJgtutQ8AdDqryHScLFn4ETPn8HFiUTnBDkqgY", "XXZ4qiRU2jgygeZbE95sHGDEC2H5uKMqqhU9THEx");
 
-alert("0");
 var photo = Parse.Object.extend("Photo");
 
 addPhotos(0,0);
@@ -53,12 +52,11 @@ function addPhotoToList(photo){
 
 function createPhotos(photoID, name, thumbnailURL, desc, photocount, owner){
 
-    alert("1");
     var template = $("#tempImage").clone();
 
     template.removeAttr("id");
 
     template.find(".images").attr("src", thumbnailURL); 
-    alert("2");
+
     return template;
 }
