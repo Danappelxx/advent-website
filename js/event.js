@@ -49,7 +49,7 @@ function getRecentPhotos(photoCount, skipCount){
 function addPhotos(photoCount, skipCount){
     getRecentPhotos(photoCount, skipCount).then(function(data){
         for(var i = 0; i < data.length; i++){
-            addPhotoToList(data[i]);
+            addPhotoToList(data[i], data.length);
         }
         $("#tempImage").css("display","none");
         
@@ -83,17 +83,18 @@ function addPhotos(photoCount, skipCount){
     });
 }
 
-function addPhotoToList(photo){
+function addPhotoToList(photo, photoCount){
     var photoID = photo.id,
         name = photo.get("name"),
         desc = photo.get("desc"),
-        photoCount = photo.get("photoCount");
+        numPhotos = photoCount,
+        //photoCount = photo.get("photoCount");
         fullPhoto = photo.get("image").url();
         thumbnailURL = fullPhoto;
 
     //TODO: add thumbnail url and owner
-    var photo = createPhotos(photoID, name, thumbnailURL, desc, photoCount, fullPhoto);
-    $(".row").append(photo);
+    var photo = createPhotos(photoID, name, thumbnailURL, desc, numPhotos, fullPhoto);
+    $(".rowContained").append(photo);
 }
 
     // var width = 100/photoCount;
@@ -101,8 +102,15 @@ function addPhotoToList(photo){
 
 function createPhotos(photoID, name, thumbnailURL, desc, photoCount, fullPhoto){
 
-    var width = 100/10;
-    width = width + "%";
+    var rowWidth = $( document ).width();
+    rowWidth = rowWidth - 200;
+    alert(rowWidth + " Row Width");
+    var width = rowWidth/photoCount;
+    
+    width = width + "px";
+    
+    alert(width + " width");
+    
     var template = $("#tempImage").clone();
 
     template.removeAttr("id");
@@ -112,10 +120,10 @@ function createPhotos(photoID, name, thumbnailURL, desc, photoCount, fullPhoto){
     images.attr("src", thumbnailURL); 
     images.attr("full",fullPhoto);
     images.attr("id", photoID);
+    //images.css("width",width);
+    //images.css("height",width);
     images.css("width",width);
     images.css("height",width);
-    images.css("min-width","100px");
-    images.css("min-height","100px");
 
     return template;
 }
