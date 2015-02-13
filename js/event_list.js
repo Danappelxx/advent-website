@@ -63,38 +63,10 @@ function addEventToList(event, index){
         time = "Updated " + moment(event.updatedAt).fromNow();
 
     var thumbnailObject = event.get("thumbnail");
-
-    if(thumbnailObject == undefined){
-        var thumbnailURL = "images/placeholder.jpg";
-        var listItem = createListItem(eventID, name, thumbnailURL, desc, photoCount, time, index);
-        var currEvents = $("#events"); 
-      //   var didInsert = false;
-      //   for(var i = 0; i < currEvents.length; i++){
-      //       if(parseInt(currEvents[i].class) > index){
-      //           listItem.insertBefore(currEvents[i]);
-      //           didInsert = true;
-      //       }
-      //   }
-      //   if(!didInsert){
-            currEvents.append(listItem);
-            var children = currEvents.children("ul");
-            children.sort(function(a,b){
-                var x = parseInt(a.id),
-                    y = parseInt(b.id);
-            if(x < y){
-                return -1;
-            }
-            else if (x > y){
-                return 1;
-            }
-            });
-            children.detach().appendTo(currEvents);
-      //  }
-    }else{
     getPhoto(thumbnailObject.id).then(function(data){
         var thumbnailURL = data.get("thumbnail").url();
         var listItem = createListItem(eventID, name, thumbnailURL, desc, photoCount, time, index);
-        var currEvents = $("#events"); 
+        var currEvents = $("#events");
       //   var didInsert = false;
       //   for(var i = 0; i < currEvents.length; i++){
       //       if(parseInt(currEvents[i].class) > index){
@@ -120,7 +92,7 @@ function addEventToList(event, index){
     }, function(error){
         console.log("Error");
         console.log(error);
-    });}
+    });
 }
 
 function getPhoto(id){
