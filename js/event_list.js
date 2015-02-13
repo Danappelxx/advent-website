@@ -69,7 +69,7 @@ function addEventToList(event, index){
 
     if(thumbnailObject == undefined){
         var thumbnailURL = "images/placeholder.jpg";
-        var listItem = createListItem(eventID, name, thumbnailURL, desc, photoCount, time, index);
+        var listItem = createListItem(eventID, name, thumbnailURL, description, photoCount, time, index);
         var currEvents = $("#events"); 
       //   var didInsert = false;
       //   for(var i = 0; i < currEvents.length; i++){
@@ -96,7 +96,7 @@ function addEventToList(event, index){
     }else{
     getPhoto(thumbnailObject.id).then(function(data){
         var thumbnailURL = data.get("thumbnail").url();
-        var listItem = createListItem(eventID, name, thumbnailURL, desc, photoCount, time, index);
+        var listItem = createListItem(eventID, name, thumbnailURL, description, photoCount, time, index);
         var currEvents = $("#events"); 
       //   var didInsert = false;
       //   for(var i = 0; i < currEvents.length; i++){
