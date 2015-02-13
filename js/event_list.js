@@ -64,7 +64,7 @@ function addEventToList(event, index){
 
     var keywords = [" "];
 
-    if(name !== undefined || description !== undefined && keywords !== " "){
+    if(name !== undefined || description !== undefined){
         var tempdesc = description.split(" ");
         var tempname = name.split(" ")
 
