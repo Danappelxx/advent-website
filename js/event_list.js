@@ -62,7 +62,15 @@ function addEventToList(event, index){
         photoCount = event.get("photoCount"),
         time = "Updated " + moment(event.updatedAt).fromNow();
 
-    var keywords = name.split(" ");
+    var keywords = [" "];
+
+    if(name !== undefined || description !== undefined && keywords !== " "){
+        var tempdesc = description.split(" ");
+        var tempname = name.split(" ")
+
+        keywords = tempname.concat(tempdesc);
+    }
+
     event.set("keywords", keywords);
 
     var thumbnailObject = event.get("thumbnail");
