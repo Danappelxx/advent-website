@@ -59,9 +59,10 @@ function addEventToList(event, index){
     var eventID = event.id,
         name = event.get("name"),
         desc = event.get("desc"),
-        searchQuery = desc.split(" ");
         photoCount = event.get("photoCount"),
         time = "Updated " + moment(event.updatedAt).fromNow();
+
+    var searchQuery = desc.split(" ");
 
     event.set("keywords",searchQuery);
 
@@ -86,7 +87,7 @@ function addEventToList(event, index){
                     y = parseInt(b.id);
             if(x < y){
                 return -1;
-            }
+            }wh
             else if (x > y){
                 return 1;
             }
