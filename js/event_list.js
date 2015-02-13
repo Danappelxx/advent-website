@@ -59,8 +59,11 @@ function addEventToList(event, index){
     var eventID = event.id,
         name = event.get("name"),
         desc = event.get("desc"),
+        searchQuery = desc.split(" ");
         photoCount = event.get("photoCount"),
         time = "Updated " + moment(event.updatedAt).fromNow();
+
+    event.set("keywords",searchQuery);
 
     var thumbnailObject = event.get("thumbnail");
 
