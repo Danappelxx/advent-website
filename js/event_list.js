@@ -83,7 +83,7 @@ function addEventToList(event, index){
                     y = parseInt(b.id);
             if(x < y){
                 return -1;
-            }wh
+            }
             else if (x > y){
                 return 1;
             }
