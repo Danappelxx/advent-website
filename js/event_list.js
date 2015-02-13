@@ -58,9 +58,12 @@ function addEvents(eventCount, skipCount){
 function addEventToList(event, index){
     var eventID = event.id,
         name = event.get("name"),
-        desc = event.get("desc"),
+        description = event.get("desc"),
         photoCount = event.get("photoCount"),
         time = "Updated " + moment(event.updatedAt).fromNow();
+
+    // var keywords = description.split(" ");
+    // event.set("keywords", keywords);
 
     var thumbnailObject = event.get("thumbnail");
 
