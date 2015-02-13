@@ -62,6 +62,7 @@ function addEventToList(event, index){
         photoCount = event.get("photoCount"),
         time = "Updated " + moment(event.updatedAt).fromNow();
 
+    console.log(description);
     // var keywords = description.split(" ");
     // event.set("keywords", keywords);
 
