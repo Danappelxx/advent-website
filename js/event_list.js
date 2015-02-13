@@ -62,10 +62,6 @@ function addEventToList(event, index){
         photoCount = event.get("photoCount"),
         time = "Updated " + moment(event.updatedAt).fromNow();
 
-    var searchQuery = desc.split(" ");
-
-    event.set("keywords",searchQuery);
-
     var thumbnailObject = event.get("thumbnail");
 
     if(thumbnailObject == undefined){
