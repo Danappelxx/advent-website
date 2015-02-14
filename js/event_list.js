@@ -168,7 +168,7 @@ $("#submitBtn").click(function(){submitEvent()});
 function slideMenuDown(){
     var menu = $("#eventMenu");
     menu.css("display","block");
-    menu.animate({height:"200px"},"slow");
+    menu.animate({height:"225px"},"slow");
 }
 function slideMenuUp(){
     var menu = $("#eventMenu");
@@ -179,14 +179,21 @@ function slideMenuUp(){
 function submitEvent(){
     var name = $("#enterName").val();
     var desc = $("#enterDesc").val();
+    var fileUploadControl = $("#uploadPhoto")[0];
 
-    console.log(name);
-    console.log(desc);
+    if (fileUploadControl.files.length > 0) {
+      var file = fileUploadControl.files[0];
+      var filename = "photo.jpg";
+     
+      var parseFile = new Parse.File(filename, file);
+    }
+
     if(name != "" && desc != ""){
         var event = new Event();
     
         event.set("name", name);
         event.set("desc", desc);
+        event.set("thumb", parseFile);
     
         event.save(null, {error : function(error){
                 console.log("Error");
@@ -194,6 +201,6 @@ function submitEvent(){
         }});
     
         slideMenuUp();
-        location.reload();
+        // location.reload();
     }
 }
