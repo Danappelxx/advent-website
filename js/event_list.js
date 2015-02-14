@@ -68,12 +68,13 @@ function addEventToList(event, index){
         
         var keywords = tempname.concat(tempdesc);
         
+        keywords = keywords.map(function(word){
+            return word.toLocaleLowerCase();
+        });
+        
         var extraneousWords = ["","to", "the", "of", "and", "at", "on"];
         keywords = keywords.filter(function(word){
             return extraneousWords.indexOf(word) == -1;
-        });
-        keywords = keywords.map(function(word){
-            return word.toLocaleLowerCase();
         });
         
         event.set("keywords", keywords);
