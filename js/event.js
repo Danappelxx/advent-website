@@ -79,11 +79,28 @@ function addPhotos(photoCount, skipCount){
             newPhoto.css("margin-left","0 auto");
             newPhoto.css("margin-right","0 auto");
             newPhoto.attr("id","expanded");
-            newPhoto.attr("onClick")
-            $("#expanded").remove();
-            $(".row").append(newPhoto);
-            $("#expanded").click(function(){ $("#expanded").remove(); });
 
+            $("#expanded").remove();
+            $(".photoInfo").remove();
+            var photoInfo = new test();
+            photoInfo.id = object.attr("id");
+            
+            var photoName = photoInfo.get("name");
+            var photoDesc = photoInfo.get("desc");
+
+            //console.log(photoInfo);
+
+            if(photoName == undefined) {
+                photoName = "Name of Photo";
+            }
+            if(photoDesc == undefined) {
+                photoDesc = "Description of Photo";
+            }
+            $('.row').append("<p class='photoInfo'>" + photoName + "</p>");
+            $('.row').append("<p class='photoInfo'>" + photoDesc + "</p>");
+            $(".row").append(newPhoto);
+
+            $("#expanded").click(function(){ $("#expanded").remove(); $(".photoInfo").remove();});
 
         }, function() {
             var object = $(this);
@@ -97,7 +114,6 @@ function addPhotos(photoCount, skipCount){
             //object.css("height","200px");
             //$("#expanded").remove();
             }
-
 
         );
 

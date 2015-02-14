@@ -198,6 +198,6 @@ function submitEvent(){
         console.log(error);
     });
     
-        slideMenuUp();
+        slideMenuUp().done(function(){location.reload});
         // location.reload();
 }
