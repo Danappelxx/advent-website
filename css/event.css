@@ -74,6 +74,18 @@ hr {
   border-radius: 4px;
 }
 
+#photoMenu {
+  width: 75%;
+  height: 0px;
+  background-color: grey;
+  display: none;
+  margin: 0 auto;
+  margin-top: 10px;
+  border: 1px solid grey;
+  border-radius: 4px;
+}
+
+
 #enterName, #enterDesc {
   width:50%;
   margin: 0 auto;
@@ -83,7 +95,7 @@ hr {
 #submitBtn {
   margin-top: 10px;
 }
-#hideEvent {
+#hideEvent, #hidePhoto {
   display: block;
   margin: 0 auto;
   margin-top: 10px;
@@ -94,9 +106,8 @@ hr {
     border-radius:8px;
     border:#ebebeb solid 1px;
     width:150px; 
-    padding: 4px 6px 4px 8px;
-    font: normal 14px Myriad Pro, Verdana, Geneva, sans-serif;
-    color: #7f7f7f;
+    padding: 4px 0px 4px 0px;
+    color: black;
     margin: 0 auto;
     margin-top: 10px;
     background:white;

@@ -7,7 +7,8 @@
 Parse.initialize("8isJgtutQ8AdDqryHScLFn4ETPn8HFiUTnBDkqgY", "XXZ4qiRU2jgygeZbE95sHGDEC2H5uKMqqhU9THEx");
 
 var photo = Parse.Object.extend("Photo"),
-    Event = Parse.Object.extend("Event");
+    Event = Parse.Object.extend("Event"),
+    test = Parse.Object.extend("Photo");
 
 updateEventNames();
 addPhotos(0,0);
@@ -157,4 +158,57 @@ function createPhotos(photoID, name, thumbnailURL, desc, photoCount, fullPhoto){
         images.css("height","25px");
     }
     return template;
+}
+
+$("#addPhoto").click(function(){slideMenuDown()});
+$("#hidePhoto").click(function(){slideMenuUp()});
+$("#submitBtn").click(function(){submitPhoto()});
+// $("#enterName").keyup(function(event){
+//     if(event.keyCode == 13){
+//         $("#submitBtn").click();
+//     }
+// });
+// $("#enterDesc").keyup(function(event){
+//     if(event.keyCode == 13){
+//         $("#submitBtn").click();
+//     }
+// });
+
+function slideMenuDown(){
+    var menu = $("#photoMenu");
+    menu.css("display","block");
+    menu.animate({height:"225px"},"slow");
+}
+function slideMenuUp(){
+    var menu = $("#photoMenu");
+    menu.animate({height:"0px"},"slow");
+    menu.promise().done(function(){ menu.css("display","none");});
+}
+
+function submitPhoto(){
+    var name = $("#enterName").val();
+    var desc = $("#enterDesc").val();
+    var image = $("#uploadPhoto").val();
+    console.log(image);
+
+    if(name != ""){
+        console.log("yes");
+        var photo = new test();
+
+        var eventID = /\?(\w+)/.exec(window.location.href)[1];
+
+        photo.set("event", eventID);
+        photo.set("title", name);
+        photo.set("image", image);
+        if(desc != ""){
+            photo.set("desc", desc);
+        }
+        photo.save(null, {error: function(error){
+                console.log("Error");
+                console.log(error);
+        }});
+    
+        slideMenuUp();
+        //location.reload();
+    }
 }
