@@ -63,8 +63,8 @@ function addEventToList(event, index){
         time = "Updated " + moment(event.updatedAt).fromNow();
 
     if(event.get("keywords") == undefined){
-        var tempdesc = (description || "").split(" ");
-        var tempname = (name || "").split(" ");
+        var tempdesc = (description || "").replace(/\n/g, "").split(" ");
+        var tempname = (name || "").replace(/\n/g, "").split(" ");
         
         var keywords = tempname.concat(tempdesc);
         
