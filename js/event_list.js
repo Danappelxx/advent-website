@@ -62,16 +62,19 @@ function addEventToList(event, index){
         photoCount = event.get("photoCount"),
         time = "Updated " + moment(event.updatedAt).fromNow();
 
-    var keywords = [" "];
-
-    if(name !== undefined || description !== undefined){
-        var tempdesc = description.split(" ");
-        var tempname = name.split(" ")
-
-        keywords = tempname.concat(tempdesc);
+    if(event.get("keywords") == undefined){
+        var tempdesc = (description || "").split(" ");
+        var tempname = (name || "").split(" ");
+        
+        //Can add filtering for words like of, and, the
+        //Also support for multiple spaces
+        var keywords = tempname.concat(tempdesc);
+        event.set("keywords", keywords);
+        event.save(null, {error : function(error){
+            console.log("Error");
+            console.log(error);
+        }});
     }
-
-    event.set("keywords", keywords);
 
     var thumbnailObject = event.get("thumbnail");
 
