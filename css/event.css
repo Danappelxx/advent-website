@@ -59,3 +59,50 @@ hr {
 .images {
   margin-left: -10px;
 }
+
+#actionButtons {
+  margin-bottom: 10px;
+}
+
+#eventMenu {
+  height: 0px;
+  background-color: grey;
+  display: none;
+  margin: 0 auto;
+  margin-top: 10px;
+  border: 1px solid grey;
+  border-radius: 4px;
+}
+
+#enterName, #enterDesc {
+  width:50%;
+  margin: 0 auto;
+  margin-top: 10px;
+}
+
+#submitBtn {
+  margin-top: 10px;
+}
+#hideEvent {
+  display: block;
+  margin: 0 auto;
+  margin-top: 10px;
+}
+
+.choose_file{
+    position:relative;    
+    border-radius:8px;
+    border:#ebebeb solid 1px;
+    width:150px; 
+    padding: 4px 6px 4px 8px;
+    font: normal 14px Myriad Pro, Verdana, Geneva, sans-serif;
+    color: #7f7f7f;
+    margin: 0 auto;
+    margin-top: 10px;
+    background:white;
+}
+.choose_file input[type="file"]{
+    position:absolute;
+    top:0; left:0;
+    opacity:0; 
+}

@@ -149,3 +149,43 @@ function getPhoto(id){
     var query = new Parse.Query(Photo);
     return query.get(id);
 }
+
+$("#addEvent").click(function(){slideMenuDown()});
+$("#hideEvent").click(function(){slideMenuUp()});
+$("#submitBtn").click(function(){submitEvent()});
+$("#enterName").keyup(function(event){
+    if(event.keyCode == 13){
+        $("#submitBtn").click();
+    }
+});
+$("#enterDesc").keyup(function(event){
+    if(event.keyCode == 13){
+        $("#submitBtn").click();
+    }
+});
+
+function slideMenuDown(){
+    var menu = $("#eventMenu");
+    menu.css("display","block");
+    menu.animate({height:"200px"},"slow");
+}
+function slideMenuUp(){
+    var menu = $("#eventMenu");
+    menu.animate({height:"0px"},"slow");
+    menu.promise().done(function(){ menu.css("display","none");});
+}
+
+function submitEvent(){
+    var name = $("#enterName").val();
+    var desc = $("#enterDesc").val();
+
+    var event = new Event();
+
+    event.set("name", name);
+    event.set("desc", desc);
+
+    event.save(null, {error : function(error){
+            console.log("Error");
+            console.log(error);
+    }});
+}

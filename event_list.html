@@ -77,6 +77,22 @@
 
       <div class="page-header">
         <h1>Events</h1>
+
+        <div id="actionButtons">
+          <button class="btn btn-default" type="button" id="addEvent">Add Event</button>
+
+          <div id="eventMenu">
+          
+            <input class="form-control" id="enterName" type="text" placeholder="Name of Event">
+            <input class="form-control" id="enterDesc" type="text" placeholder="Description of Event">
+          
+            <button class="btn btn-default" id="submitBtn" type="button">Submit</button>
+          
+            <button class="btn btn-default" type="button" id="hideEvent">Hide</button>
+
+          </div>
+        </div>
+
         <div class="input-group">
             <input onkeydown="checkKey(event)"type="text" class="form-control" placeholder="Search">
             <span class="input-group-btn">
