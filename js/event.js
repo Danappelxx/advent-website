@@ -52,9 +52,20 @@ function addPhotos(photoCount, skipCount){
             addPhotoToList(data[i], data.length);
         }
         $("#tempImage").css("display","none");
-        
-        $("#expanded").click($(this).remove());
 
+        var eventID = /\?(\w+)/.exec(window.location.href)[1];
+        var event = new Event();
+        event.id = eventID;
+
+        event.set("photoCount", data.length);
+        event.save(null, {error : function(error){
+            console.log("Error");
+            console.log(error);
+        }});
+
+        // $(this).css("display","none"))
+
+       
         $(".images").hover(function() { 
             var object = $(this);
 
@@ -67,8 +78,11 @@ function addPhotos(photoCount, skipCount){
             newPhoto.css("margin-left","0 auto");
             newPhoto.css("margin-right","0 auto");
             newPhoto.attr("id","expanded");
+            newPhoto.attr("onClick")
             $("#expanded").remove();
             $(".row").append(newPhoto);
+            $("#expanded").click(function(){ $("#expanded").remove(); });
+
 
         }, function() {
             var object = $(this);
