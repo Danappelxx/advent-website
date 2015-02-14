@@ -66,9 +66,16 @@ function addEventToList(event, index){
         var tempdesc = (description || "").split(" ");
         var tempname = (name || "").split(" ");
         
-        //Can add filtering for words like of, and, the
-        //Also support for multiple spaces
         var keywords = tempname.concat(tempdesc);
+        
+        var extraneousWords = ["","to", "the", "of", "and", "at", "on"];
+        keywords = keywords.filter(function(word){
+            return extraneousWords.indexOf(word) == -1;
+        });
+        keywords = keywords.map(function(word){
+            return word.toLocaleLowerCase();
+        });
+        
         event.set("keywords", keywords);
         event.save(null, {error : function(error){
             console.log("Error");
