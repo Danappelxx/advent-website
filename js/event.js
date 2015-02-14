@@ -188,18 +188,24 @@ function slideMenuUp(){
 function submitPhoto(){
     var name = $("#enterName").val();
     var desc = $("#enterDesc").val();
-    var image = $("#uploadPhoto").val();
-    console.log(image);
+    // var fileUploadControl = $("#uploadPhoto")[0];
+
+    // if (fileUploadControl.files.length > 0) {
+    //   var file = fileUploadControl.files[0];
+    //   var filename = "photo.jpg";
+     
+    //   var parseFile = new Parse.File(filename, file);
+    // }
+    // console(parseFile);
 
     if(name != ""){
         console.log("yes");
         var photo = new test();
-
         var eventID = /\?(\w+)/.exec(window.location.href)[1];
-
+        
         photo.set("event", eventID);
         photo.set("title", name);
-        photo.set("image", image);
+        // photo.set("image", parseFile);
         if(desc != ""){
             photo.set("desc", desc);
         }
@@ -209,6 +215,6 @@ function submitPhoto(){
         }});
     
         slideMenuUp();
-        //location.reload();
+        // location.reload();
     }
 }
