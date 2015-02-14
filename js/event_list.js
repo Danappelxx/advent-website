@@ -84,9 +84,9 @@ function addEventToList(event, index){
         }});
     }
 
-    var thumbnailObject = event.get("thumbnail");
+    // var thumbnailObject = event.get("thumbnail");
 
-    if(thumbnailObject == undefined){
+    if(event.get("thumbnail") == undefined){
         var thumbnailURL = "images/placeholder.jpg";
         var listItem = createListItem(eventID, name, thumbnailURL, description, photoCount, time, index);
         var currEvents = $("#events"); 
@@ -112,10 +112,10 @@ function addEventToList(event, index){
             });
             children.detach().appendTo(currEvents);
       //  }
-    }else{
-    getPhoto(thumbnailObject.id).then(function(data){
-        var thumbnailURL = data.get("thumbnail").url();
-        var listItem = createListItem(eventID, name, thumbnailURL, description, photoCount, time, index);
+    }else {
+
+        var thumbnail = event.get("thumbnail").url();
+        var listItem = createListItem(eventID, name, thumbnail, description, photoCount, time, index);
         var currEvents = $("#events"); 
       //   var didInsert = false;
       //   for(var i = 0; i < currEvents.length; i++){
@@ -139,10 +139,7 @@ function addEventToList(event, index){
             });
             children.detach().appendTo(currEvents);
       //  }
-    }, function(error){
-        console.log("Error");
-        console.log(error);
-    });}
+    } 
 }
 
 function getPhoto(id){
@@ -179,28 +176,28 @@ function slideMenuUp(){
 function submitEvent(){
     var name = $("#enterName").val();
     var desc = $("#enterDesc").val();
-    var fileUploadControl = $("#uploadPhoto")[0];
 
-    if (fileUploadControl.files.length > 0) {
-      var file = fileUploadControl.files[0];
-      var filename = "photo.jpg";
-     
-      var parseFile = new Parse.File(filename, file);
-    }
+    var parseFile = new Parse.File("file", $("#uploadPhoto")[0].files[0]);
 
-    if(name != "" && desc != ""){
-        var event = new Event();
+    parseFile.save().then(function(){
+        if(name != "" && desc != ""){
+            var event = new Event();
     
-        event.set("name", name);
-        event.set("desc", desc);
-        event.set("thumb", parseFile);
-    
-        event.save(null, {error : function(error){
-                console.log("Error");
-                console.log(error);
-        }});
+            event.set("thumbnail", parseFile);
+            event.set("name", name);
+            if(desc != ""){
+                event.set("desc", desc);
+            }
+            event.save(null, {error: function(error){
+                    console.log("Error");
+                    console.log(error);
+            }});
+        }
+    }, function(error){
+        console.log("Error");
+        console.log(error);
+    });
     
         slideMenuUp();
         // location.reload();
-    }
 }
