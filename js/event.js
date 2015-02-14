@@ -188,33 +188,33 @@ function slideMenuUp(){
 function submitPhoto(){
     var name = $("#enterName").val();
     var desc = $("#enterDesc").val();
-    // var fileUploadControl = $("#uploadPhoto")[0];
 
-    // if (fileUploadControl.files.length > 0) {
-    //   var file = fileUploadControl.files[0];
-    //   var filename = "photo.jpg";
-     
-    //   var parseFile = new Parse.File(filename, file);
-    // }
-    // console(parseFile);
-
-    if(name != ""){
-        console.log("yes");
-        var photo = new test();
-        var eventID = /\?(\w+)/.exec(window.location.href)[1];
+    if($("#uploadPhoto")[0].files.length > 0){
+        var parseFile = new Parse.File("file", $("#uploadPhoto")[0].files[0]);
+        parseFile.save().then(function(){
+            if(name != ""){
+                var photo = new test();
         
-        photo.set("event", eventID);
-        photo.set("title", name);
-        // photo.set("image", parseFile);
-        if(desc != ""){
-            photo.set("desc", desc);
-        }
-        photo.save(null, {error: function(error){
-                console.log("Error");
-                console.log(error);
-        }});
-    
-        slideMenuUp();
-        // location.reload();
+                var eventID = /\?(\w+)/.exec(window.location.href)[1];
+                var tempEvent = new Event();
+                tempEvent.id = eventID;
+        
+                photo.set("event", tempEvent);
+                photo.set("title", name);
+                photo.set("image", parseFile);
+                if(desc != ""){
+                    photo.set("desc", desc);
+                }
+                photo.save(null, {error: function(error){
+                        console.log("Error");
+                        console.log(error);
+                }});
+            }
+        }, function(error){
+            console.log("Error");
+            console.log(error);
+        });
     }
+        slideMenuUp();
+        //location.reload();
 }
