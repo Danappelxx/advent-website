@@ -153,16 +153,17 @@ function getPhoto(id){
 $("#addEvent").click(function(){slideMenuDown()});
 $("#hideEvent").click(function(){slideMenuUp()});
 $("#submitBtn").click(function(){submitEvent()});
-$("#enterName").keyup(function(event){
-    if(event.keyCode == 13){
-        $("#submitBtn").click();
-    }
-});
-$("#enterDesc").keyup(function(event){
-    if(event.keyCode == 13){
-        $("#submitBtn").click();
-    }
-});
+
+// $("#enterName").keyup(function(event){
+//     if(event.keyCode == 13){
+//         $("#submitBtn").click();
+//     }
+// });
+// $("#enterDesc").keyup(function(event){
+//     if(event.keyCode == 13){
+//         $("#submitBtn").click();
+//     }
+// });
 
 function slideMenuDown(){
     var menu = $("#eventMenu");
@@ -179,13 +180,20 @@ function submitEvent(){
     var name = $("#enterName").val();
     var desc = $("#enterDesc").val();
 
-    var event = new Event();
-
-    event.set("name", name);
-    event.set("desc", desc);
-
-    event.save(null, {error : function(error){
-            console.log("Error");
-            console.log(error);
-    }});
+    console.log(name);
+    console.log(desc);
+    if(name != "" && desc != ""){
+        var event = new Event();
+    
+        event.set("name", name);
+        event.set("desc", desc);
+    
+        event.save(null, {error : function(error){
+                console.log("Error");
+                console.log(error);
+        }});
+    
+        slideMenuUp();
+        location.reload();
+    }
 }
