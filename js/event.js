@@ -82,11 +82,9 @@ function addPhotos(photoCount, skipCount){
 
             $("#expanded").remove();
             $(".photoInfo").remove();
-            var photoInfo = new test();
-            photoInfo.id = object.attr("id");
             
-            var photoName = photoInfo.get("name");
-            var photoDesc = photoInfo.get("desc");
+            var photoName = this.attr("ad_name");
+            var photoDesc = this.attr("ad_desc");
 
             //console.log(photoInfo);
 
@@ -164,6 +162,9 @@ function createPhotos(photoID, name, thumbnailURL, desc, photoCount, fullPhoto){
     images.attr("id", photoID);
     images.css("width",width);
     images.css("height",width);
+    
+    images.attr("ad_name", name);
+    images.attr("ad_desc", desc);
 
     if(images.width() > 200){
         images.css("width","200px");
