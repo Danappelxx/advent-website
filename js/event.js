@@ -83,8 +83,8 @@ function addPhotos(photoCount, skipCount){
             $("#expanded").remove();
             $(".photoInfo").remove();
             
-            var photoName = this.attr("ad_name");
-            var photoDesc = this.attr("ad_desc");
+            var photoName = object.attr("ad_name");
+            var photoDesc = object.attr("ad_desc");
 
             //console.log(photoInfo);
 
