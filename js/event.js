@@ -83,18 +83,18 @@ function addPhotos(photoCount, skipCount){
             $("#expanded").remove();
             $(".photoInfo").remove();
             
-            var photoName = object.attr("ad_name");
+            var photoTitle = object.attr("ad_title");
             var photoDesc = object.attr("ad_desc");
 
             //console.log(photoInfo);
 
-            if(photoName == undefined) {
-                photoName = "Name of Photo";
+            if(photoTitle == undefined) {
+                photoTitle = "Title of Photo";
             }
             if(photoDesc == undefined) {
                 photoDesc = "Description of Photo";
             }
-            $('.row').append("<p class='photoInfo'>" + photoName + "</p>");
+            $('.row').append("<p class='photoInfo'>" + photoTitle + "</p>");
             $('.row').append("<p class='photoInfo'>" + photoDesc + "</p>");
             $(".row").append(newPhoto);
 
@@ -129,7 +129,7 @@ function addPhotos(photoCount, skipCount){
 
 function addPhotoToList(photo, photoCount){
     var photoID = photo.id,
-        name = photo.get("name"),
+        title = photo.get("title"),
         desc = photo.get("desc"),
         numPhotos = photoCount,
         fullPhoto = photo.get("image").url(),
@@ -137,11 +137,11 @@ function addPhotoToList(photo, photoCount){
         //thumbnailURL = photo.get("thumbnail").url();
 
     //TODO: add thumbnail url and owner
-    var photo = createPhotos(photoID, name, thumbnailURL, desc, numPhotos, fullPhoto);
+    var photo = createPhotos(photoID, title, thumbnailURL, desc, numPhotos, fullPhoto);
     $(".rowContained").append(photo);
 }
 
-function createPhotos(photoID, name, thumbnailURL, desc, photoCount, fullPhoto){
+function createPhotos(photoID, title, thumbnailURL, desc, photoCount, fullPhoto){
 
     var rowWidth = $( document ).width();
     
@@ -163,7 +163,7 @@ function createPhotos(photoID, name, thumbnailURL, desc, photoCount, fullPhoto){
     images.css("width",width);
     images.css("height",width);
     
-    images.attr("ad_name", name);
+    images.attr("ad_title", title);
     images.attr("ad_desc", desc);
 
     if(images.width() > 200){
